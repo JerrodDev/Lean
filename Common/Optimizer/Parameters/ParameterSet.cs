@@ -1,4 +1,4 @@
-﻿/*
+/*
  * QUANTCONNECT.COM - Democratizing Finance, Empowering Individuals.
  * Lean Algorithmic Trading Engine v2.0. Copyright 2014 QuantConnect Corporation.
  *
@@ -39,7 +39,7 @@ namespace QuantConnect.Optimizer.Parameters
         /// Represent a combination as key value of parameters, i.e. order doesn't matter
         /// </summary>
         [JsonProperty(PropertyName = "value", NullValueHandling = NullValueHandling.Ignore)]
-        public IReadOnlyDictionary<string, string> Value { get; }
+        public Dictionary<string, string> Value { get; }
 
         /// <summary>
         /// Creates an instance of <see cref="ParameterSet"/> based on new combination of optimization parameters
@@ -49,7 +49,7 @@ namespace QuantConnect.Optimizer.Parameters
         public ParameterSet(int id, Dictionary<string, string> value)
         {
             Id = id;
-            Value = value?.ToReadOnlyDictionary();
+            Value = value?.ToDictionary();
         }
 
         /// <summary>
